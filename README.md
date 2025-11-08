@@ -64,6 +64,60 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/323490be-ae9d-456a-b336-410248083758) and click on Share -> Publish.
 
+## Run locally with Docker
+
+You can develop and/or serve this app locally using Docker. You'll need Docker Desktop installed.
+
+### Option 1: Live development (Vite + HMR)
+
+This runs the Vite dev server inside a container and mounts your source code for hot reload.
+
+```powershell
+# Start the dev server on http://localhost:5173
+docker compose --profile dev up --build
+
+# Stop it when done
+docker compose --profile dev down
+```
+
+Notes:
+- Your local files are bind-mounted into the container, so edits on your host trigger HMR.
+- If port 5173 is busy, change the left-hand side of the mapping in `docker-compose.yml`.
+
+### Option 2: Production-like build (static, via NGINX)
+
+This builds the app and serves the static `dist/` files via NGINX.
+
+```powershell
+# Build and run the production image, served at http://localhost:8080
+docker compose --profile prod up --build
+
+# Stop and remove containers
+docker compose --profile prod down
+```
+
+What this does:
+- Builds the app in a Node image, then copies the output into an `nginx:alpine` image.
+- Uses an SPA-friendly NGINX config so client-side routes work (fallback to `index.html`).
+
+### Without Compose (optional)
+
+If you prefer plain Docker commands:
+
+```powershell
+# Dev (Vite) – map current folder and expose port
+docker build -t ghost-uio-mission-web:dev --target dev . ; \
+docker run --rm -it -p 5173:5173 -v ${PWD}:/app -v /app/node_modules ghost-uio-mission-web:dev
+
+# Prod – single static image on port 8080
+docker build -t ghost-uio-mission-web:prod --target prod . ; \
+docker run --rm -p 8080:80 ghost-uio-mission-web:prod
+```
+
+Troubleshooting:
+- If you see "address already in use", another process is using that port. Change the host port in the command or `docker-compose.yml`.
+- First run may take longer to install dependencies; subsequent runs are cached.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
