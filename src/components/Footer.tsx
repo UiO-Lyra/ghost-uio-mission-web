@@ -1,5 +1,4 @@
-import { Rocket } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Rocket, Instagram, Linkedin, Facebook } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -20,42 +19,50 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link to="/mission" className="hover:text-primary transition-colors">
-                  About the Mission
-                </Link>
+                <a href="#mission" className="hover:text-primary transition-colors">Mission</a>
               </li>
               <li>
-                <Link to="/satellite" className="hover:text-primary transition-colors">
-                  MUNIR-3 Satellite
-                </Link>
+                <a href="#technology" className="hover:text-primary transition-colors">MUNIR-3</a>
               </li>
               <li>
-                <Link to="/launch" className="hover:text-primary transition-colors">
-                  Launch Campaign
-                </Link>
+                <a href="#launch" className="hover:text-primary transition-colors">Launch</a>
               </li>
               <li>
-                <Link to="/team" className="hover:text-primary transition-colors">
-                  Team
-                </Link>
+                <a href="#team" className="hover:text-primary transition-colors">Team</a>
+              </li>
+              <li>
+                <a href="#join" className="hover:text-primary transition-colors">Join</a>
               </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
-            <p className="text-sm text-muted-foreground mb-2">University of Oslo</p>
+            <p className="text-sm text-muted-foreground mb-1">Lyra</p>
+            <p className="text-sm text-muted-foreground mb-1">Sem Sælands vei 24, UiO</p>
+            <p className="text-sm text-muted-foreground mb-4">0371 Oslo</p>
             <a
-              href="mailto:ghost@uio.no"
+              href="mailto:lyra@terraspace.no"
               className="text-sm text-primary hover:text-primary-glow transition-colors"
             >
-              ghost@uio.no
+              lyra@terraspace.no
             </a>
+            <div className="mt-4 flex items-center gap-3 text-muted-foreground">
+              <a href="https://www.instagram.com/lyra.terraspace/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors">
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a href="https://www.linkedin.com/company/lyra-terraspace/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors">
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a href="https://uio-lyra.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors">
+                <Facebook className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} GHOST Mission, University of Oslo. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} GHOST Mission by Lyra. All rights reserved.</p>
         </div>
       </div>
     </footer>

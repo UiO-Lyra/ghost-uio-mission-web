@@ -144,10 +144,10 @@ const Team = () => {
                 Interested students should reach out via email to learn about current opportunities and upcoming recruitment. We hold regular team meetings and welcome visitors to our lab facilities.
               </p>
               <a
-                href="mailto:ghost@uio.no"
+                href="mailto:lyra@terraspace.no"
                 className="text-primary hover:text-primary-glow font-semibold transition-colors"
               >
-                Contact us at ghost@uio.no
+                Contact us at lyra@terraspace.no
               </a>
             </div>
           </Card>

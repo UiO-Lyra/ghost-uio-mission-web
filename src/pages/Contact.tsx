@@ -19,25 +19,19 @@ const Contact = () => {
                 For general inquiries, collaboration opportunities, or press requests:
               </p>
               <a
-                href="mailto:ghost@uio.no"
+                href="mailto:lyra@terraspace.no"
                 className="text-primary hover:text-primary-glow font-semibold transition-colors text-lg"
               >
-                ghost@uio.no
+                lyra@terraspace.no
               </a>
             </Card>
 
             <Card className="p-8 bg-card border-border">
               <MapPin className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-2xl font-semibold mb-3">Location</h3>
-              <p className="text-muted-foreground mb-2">
-                University of Oslo
-              </p>
-              <p className="text-muted-foreground mb-2">
-                Department of Physics
-              </p>
-              <p className="text-muted-foreground">
-                Blindern, Oslo, Norway
-              </p>
+              <p className="text-muted-foreground mb-2">Lyra</p>
+              <p className="text-muted-foreground mb-2">Sem Sælands vei 24, UiO</p>
+              <p className="text-muted-foreground">0371 Oslo</p>
             </Card>
           </div>
 
