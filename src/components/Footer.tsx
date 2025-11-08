@@ -1,4 +1,4 @@
-import { Rocket, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Rocket, Linkedin } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -48,14 +48,8 @@ export const Footer = () => {
               lyra@terraspace.no
             </a>
             <div className="mt-4 flex items-center gap-3 text-muted-foreground">
-              <a href="https://www.instagram.com/lyra.terraspace/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors">
-                <Instagram className="h-4 w-4" />
-              </a>
               <a href="https://www.linkedin.com/company/lyra-terraspace/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors">
                 <Linkedin className="h-4 w-4" />
-              </a>
-              <a href="https://uio-lyra.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors">
-                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>

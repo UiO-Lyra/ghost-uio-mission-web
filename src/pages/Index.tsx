@@ -1,10 +1,57 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Rocket, Satellite as SatelliteIcon, Users, Target, Zap, MapPin, Calendar, CheckCircle2, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Rocket, Satellite as SatelliteIcon, Users, Target, Zap, MapPin, Calendar, CheckCircle2, Linkedin } from "lucide-react";
 import heroImage from "@/assets/hero-rocket-launch.jpg";
-import satelliteImage from "@/assets/munir-3-satellite.jpg";
-import andoyaImage from "@/assets/andoya-facility.jpg";
-import labWorkImage from "@/assets/lab-work.jpg";
+// New payload images provided by user
+import payloadImg1 from "@/assets/20251020_014526.jpg";
+import payloadImg2 from "@/assets/20250616_151931.jpg";
+import payloadImg3 from "@/assets/20251019_212455.jpg";
+
+// Dynamically include team images: all images in assets folder except known payload and stock images.
+// Vite glob for static assets (typescript may complain; at runtime Vite injects typing). Cast loosely.
+// @ts-ignore
+const assetImages = import.meta.glob("/src/assets/*.{jpg,jpeg,png,webp}", { eager: true }) as Record<string, any>;
+const excludeBasenames = new Set([
+  "20251020_014526.jpg",
+  "20250616_151931.jpg",
+  "20251019_212455.jpg",
+  "hero-rocket-launch.jpg",
+  "munir-3-satellite.jpg",
+  "andoya-facility.jpg",
+  "lab-work.jpg",
+]);
+const teamImages: { src: string; alt: string }[] = Object.entries(assetImages)
+  .filter(([path]) => !excludeBasenames.has(path.split("/").pop() || ""))
+  .map(([path, mod]) => {
+    const url = typeof mod === "string" ? mod : mod.default;
+    const name = (path.split("/").pop() || "team").replace(/[-_]/g, " ").replace(/\.[^.]+$/, "");
+    return { src: url, alt: `Lyra team – ${name}` };
+  });
+
+const TeamGallery = () => (
+  <Carousel className="w-full" aria-label="Team photo gallery">
+    <CarouselContent>
+      {teamImages.map((img, i) => (
+        <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+          <figure className="relative overflow-hidden rounded-lg bg-card border border-border h-[28rem] group">
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading={i > 2 ? "lazy" : "eager"}
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs text-white/90">
+              {img.alt}
+            </figcaption>
+          </figure>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+    <CarouselPrevious className="-left-4" />
+    <CarouselNext className="-right-4" />
+  </Carousel>
+);
 
 const Index = () => {
   return (
@@ -61,7 +108,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 gap-8 mb-12">
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-bold mb-4">About GHOST</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -80,13 +127,6 @@ const Index = () => {
                   <p className="font-semibold">NASA • Andøya Space</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <img
-                src={satelliteImage}
-                alt="MUNIR-3 satellite in orbit above Earth"
-                className="rounded-lg w-full h-auto shadow-2xl"
-              />
             </div>
           </div>
         </div>
@@ -138,9 +178,23 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-3">MUNIR‑3 Payload</h2>
             <p className="text-xl text-muted-foreground">Our compact, capable platform for ionospheric science</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <img src={satelliteImage} alt="MUNIR-3 render" className="rounded-lg w-full h-auto shadow-2xl" />
+              <Carousel className="w-full" aria-label="MUNIR‑3 payload images">
+                <CarouselContent>
+                  {[payloadImg1, payloadImg2, payloadImg3].map((src, idx) => (
+                    <CarouselItem key={idx} className="lg:basis-full">
+                      <img
+                        src={src}
+                        alt={`MUNIR‑3 payload photo ${idx + 1}`}
+                        className="rounded-lg w-full h-auto shadow-2xl object-cover"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-6" />
+                <CarouselNext className="-right-6" />
+              </Carousel>
             </div>
             <div className="flex flex-col justify-center">
               <div className="grid grid-cols-2 gap-4 mb-6">
@@ -177,7 +231,7 @@ const Index = () => {
       {/* Launch */}
       <section id="launch" className="py-24 px-4 bg-card">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 gap-8">
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Launch Campaign</h2>
               <p className="text-muted-foreground mb-6">Preparing for launch at Andøya Space Center in northern Norway—one of the world’s premier locations for auroral and ionospheric research.</p>
@@ -201,9 +255,6 @@ const Index = () => {
                 </div>
               </Card>
             </div>
-            <div>
-              <img src={andoyaImage} alt="Andøya Space Center" className="rounded-lg w-full h-auto shadow-2xl"/>
-            </div>
           </div>
         </div>
       </section>
@@ -211,10 +262,7 @@ const Index = () => {
       {/* Team */}
       <section id="team" className="py-24 px-4 bg-background">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <img src={labWorkImage} alt="Students working in the lab" className="rounded-lg w-full h-auto shadow-2xl" />
-            </div>
+          <div className="grid grid-cols-1 gap-8 mb-12">
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">An Interdisciplinary Team</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -242,6 +290,11 @@ const Index = () => {
                 </Card>
               </div>
             </div>
+          </div>
+          {/* Team Gallery */}
+          <div className="mt-4">
+            <h3 className="text-2xl font-semibold mb-4">Team Gallery</h3>
+            <TeamGallery />
           </div>
         </div>
       </section>
@@ -284,14 +337,8 @@ const Index = () => {
           </div>
           <div className="mt-6 flex items-center gap-4">
             <span className="text-sm text-muted-foreground">Follow:</span>
-            <a href="https://www.instagram.com/lyra.terraspace/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
-              <Instagram className="h-5 w-5" />
-            </a>
             <a href="https://www.linkedin.com/company/lyra-terraspace/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="https://uio-lyra.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
-              <Facebook className="h-5 w-5" />
             </a>
           </div>
         </div>
