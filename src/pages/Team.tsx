@@ -136,7 +136,7 @@ const Team = () => {
           <Card className="p-8 bg-card border-border">
             <h3 className="text-2xl font-semibold mb-4">Join the Team</h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              We're always looking for motivated students to join the GHOST mission. Whether you're interested in hardware design, software development, scientific research, or project coordination, there's a place for you on our team. No prior space experience is required—just enthusiasm and a willingness to learn!
+              We're always looking for motivated students to join the GHOST mission. Whether you're interested in hardware design, software development, scientific research, or project coordination, there's a place for you on our team. No prior space experience is required-just enthusiasm and a willingness to learn!
             </p>
             <div className="bg-background border border-border rounded-lg p-6">
               <h4 className="font-semibold mb-3">How to Get Involved</h4>

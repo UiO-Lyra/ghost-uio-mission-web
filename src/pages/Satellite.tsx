@@ -29,7 +29,7 @@ const Satellite = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-card border border-border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground mb-1">Type</p>
-                  <p className="font-semibold">CubeSat 3U</p>
+                  <p className="font-semibold">CubeSat 1U</p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground mb-1">Mass</p>
@@ -113,7 +113,7 @@ const Satellite = () => {
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <div className="h-2 w-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span><strong>Aluminum Frame:</strong> Lightweight yet robust 3U CubeSat chassis</span>
+                    <span><strong>Aluminum Frame:</strong> Lightweight yet robust 1U CubeSat chassis</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="h-2 w-2 bg-primary rounded-full mt-2 flex-shrink-0" />

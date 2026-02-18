@@ -73,7 +73,7 @@ const Index = () => {
             A student-led space mission from the University of Oslo
           </p>
           <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto">
-            Lyra is a nonprofit of volunteer innovators who choose hard problems and build across disciplines—delivering fierce innovation against the odds. Together we are designing, building, and launching the MUNIR‑3 payload in collaboration with NASA and Andøya Space.
+            Lyra is a nonprofit of volunteer innovators who choose hard problems and build across disciplines-delivering fierce innovation against the odds. Together we are designing, building, and launching the MUNIR‑3 payload in collaboration with NASA and Andøya Space.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#mission">
@@ -112,10 +112,10 @@ const Index = () => {
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-bold mb-4">About GHOST</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                GHOST—Geospace High‑altitude Observation Satellite Technology—is a University of Oslo student initiative focused on atmospheric plasma research. In collaboration with NASA, our volunteer team is developing and launching MUNIR‑3 to study the ionosphere during a sounding rocket flight from Andøya.
+                GHOST-Geospace High‑altitude Observation Satellite Technology-is a University of Oslo student initiative focused on atmospheric plasma research. In collaboration with NASA, our volunteer team is developing and launching MUNIR‑3 to study the ionosphere during a sounding rocket flight from Andøya.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The mission provides real, hands‑on experience while contributing meaningful data to science—proof that the next generation can build ambitious space systems together.
+                The mission provides real, hands‑on experience while contributing meaningful data to science-proof that the next generation can build ambitious space systems together.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-card border border-border rounded-lg p-4">
@@ -200,7 +200,7 @@ const Index = () => {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-card border border-border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground mb-1">Type</p>
-                  <p className="font-semibold">3U CubeSat</p>
+                  <p className="font-semibold">1U CubeSat</p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground mb-1">Mass</p>
@@ -234,7 +234,7 @@ const Index = () => {
           <div className="grid grid-cols-1 gap-8">
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Launch Campaign</h2>
-              <p className="text-muted-foreground mb-6">Preparing for launch at Andøya Space Center in northern Norway—one of the world’s premier locations for auroral and ionospheric research.</p>
+              <p className="text-muted-foreground mb-6">Preparing for launch at Andøya Space Center in northern Norway-one of the world’s premier locations for auroral and ionospheric research.</p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-background border border-border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground mb-1">Location</p>
@@ -266,7 +266,7 @@ const Index = () => {
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">An Interdisciplinary Team</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Lyra is a nonprofit of brilliant minds at UiO working voluntarily—building across physics, engineering, and computer science to deliver a mission larger than ourselves.
+                Lyra is a nonprofit of brilliant minds at UiO working voluntarily-building across physics, engineering, and computer science to deliver a mission larger than ourselves.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="p-4 bg-card border-border">
@@ -304,7 +304,7 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join the Mission</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We’re a volunteer, student-led organization. No prior space experience required—just drive, curiosity, and commitment.
+            We’re a volunteer, student-led organization. No prior space experience required-just drive, curiosity, and commitment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#team">
